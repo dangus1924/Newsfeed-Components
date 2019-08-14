@@ -125,11 +125,14 @@ function articleCreator(title, date, p1, p2, p3) {
   secondParagraph.textContent = p2;
   thirdParagraph.textContent = p3;
   button.textContent = 'Expand';
+  // button.currentTarget.style
 
   // appends
   article.appendChild(titleArticle);
   article.appendChild(dateAtricle);
-  article.appendChild(firstParagraph, secondParagraph, thirdParagraph);
+  article.appendChild(firstParagraph);
+  article.appendChild(secondParagraph);
+  article.appendChild(thirdParagraph);
   article.appendChild(button)
 
   // click handler
@@ -143,6 +146,7 @@ function articleCreator(title, date, p1, p2, p3) {
 // Iterate through data
 data.forEach(function(article) {
   document.querySelector('.articles').appendChild(articleCreator(article.title, article.date, article.firstParagraph, article.secondParagraph, article.thirdParagraph));
+  console.log('data', data)
 });
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
