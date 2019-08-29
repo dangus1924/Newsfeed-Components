@@ -85,8 +85,69 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'This was added by Darren Angus',
+    date: 'Aug 13th, 2019',
+    firstParagraph: `I will type this paragraph without hiting the backspave button, so whatever mistake that i made willnot be corrected. I bought a new keyboard`,
+    
+    secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+          hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+          hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+          hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+    thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  
+
   }
 ];
+
+function articleCreator(title, date, p1, p2, p3) {
+  const article = document.createElement('div');
+  const titleArticle = document.createElement('h2');
+  const dateAtricle = document.createElement('p');
+  const firstParagraph = document.createElement('p');
+  const secondParagraph = document.createElement('p');
+  const thirdParagraph = document.createElement('p');
+  const button = document.createElement('span');
+
+  // class
+  article.classList.add('article');
+  dateAtricle.classList.add('date');
+  button.classList.add('expandButton');
+
+  // text content
+  titleArticle.textContent = title;
+  dateAtricle.textContent = date;
+  firstParagraph.textContent = p1;
+  secondParagraph.textContent = p2;
+  thirdParagraph.textContent = p3;
+  button.textContent = 'Expand';
+  // button.currentTarget.style
+
+  // appends
+  article.appendChild(titleArticle);
+  article.appendChild(dateAtricle);
+  article.appendChild(firstParagraph);
+  article.appendChild(secondParagraph);
+  article.appendChild(thirdParagraph);
+  article.appendChild(button)
+
+  // click handler
+  button.addEventListener('click', () => {
+    article.classList.toggle('article-open');
+  });
+
+  return article;
+}
+
+// Iterate through data
+data.forEach(function(article) {
+  document.querySelector('.articles').appendChild(articleCreator(article.title, article.date, article.firstParagraph, article.secondParagraph, article.thirdParagraph));
+  console.log('data', data)
+});
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
